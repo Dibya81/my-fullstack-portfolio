@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
             formStatus.textContent = '';
             formStatus.className = '';
             try {
-                const response = await fetch('http://localhost:3000/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) });
+                // --- THIS LINE IS NOW CORRECTED ---
+                const response = await fetch('https://dibya-backend.onrender.com/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) });
                 const result = await response.json();
                 if (response.ok) {
                     formStatus.textContent = result.message;
@@ -61,8 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.querySelector('.modal-prev');
     const nextBtn = document.querySelector('.modal-next');
 
-    // --- IMPORTANT: Add your image and video paths here! ---
-    // This code now automatically handles spaces and special characters.
     const galleries = {
         cricket: [
             { type: 'image', src: 'cricket/WhatsApp Image 2025-07-27 at 16.20.35 (1).jpeg' },
@@ -102,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateMedia() {
         galleryContentHost.innerHTML = '';
         const media = currentGallery[currentIndex];
-        const mediaPath = encodeURI(media.src); // Encodes the path to handle special characters
+        const mediaPath = encodeURI(media.src);
 
         if (media.type === 'image') {
             const img = document.createElement('img');
