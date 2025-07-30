@@ -1,3 +1,4 @@
+// Forcing a new deploy on Render
 // server.js
 
 // --- Import required modules ---
@@ -7,20 +8,21 @@ const { Pool } = require('pg'); // PostgreSQL client
 
 // --- Initialize Express app ---
 const app = express();
-const PORT = 3000;
+// Use the port provided by the hosting environment (like Render), or 3000 for local development
+const PORT = process.env.PORT || 3000;
 
 // --- Middleware ---
 app.use(cors()); 
 app.use(express.json());
 
 // --- PostgreSQL Database Connection ---
-// IMPORTANT: Replace 'YOUR_POSTGRES_PASSWORD' with your actual password
+// This code securely connects using a connection URL provided by Render.
+// It will look for an environment variable called DATABASE_URL.
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'portfolio',
-    password: 'Dibya@123', 
-    port: 5432,
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false // This is required for Render's database connections
+    }
 });
 
 // --- API Routes ---
@@ -33,6 +35,7 @@ const pool = new Pool({
 app.post('/api/contact', async (req, res) => {
     const { name, email, message } = req.body;
 
+    // Basic validation
     if (!name || !email || !message) {
         return res.status(400).json({ message: 'All fields are required.' });
     }
@@ -45,6 +48,7 @@ app.post('/api/contact', async (req, res) => {
     `;
 
     try {
+        // Execute the query with the form data
         const result = await pool.query(insertQuery, [name, email, message]);
         console.log(`--- New contact saved to database with ID: ${result.rows[0].id} ---`);
         res.status(200).json({ message: 'Thank you! Your message has been received.' });
@@ -61,6 +65,7 @@ app.post('/api/contact', async (req, res) => {
  */
 app.get('/api/contacts', async (req, res) => {
     try {
+        // Execute the query to get all contacts, ordered by newest first
         const result = await pool.query('SELECT id, name, email, message, submitted_at FROM contacts ORDER BY submitted_at DESC');
         res.status(200).json(result.rows);
     } catch (error) {
@@ -72,5 +77,5 @@ app.get('/api/contacts', async (req, res) => {
 
 // --- Start the server ---
 app.listen(PORT, () => {
-    console.log(`Server is listening on http://localhost:${PORT}`);
+    console.log(`Server is listening on port ${PORT}`);
 });
