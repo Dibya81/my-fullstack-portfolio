@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dibya Bhusal - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">D</div>
+                <div>
+                    <h2 class="sidebar-title">Dibya Bhusal</h2>
+                    <p class="sidebar-subtitle">Visionary Techie & Bold Problem Solver</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-link active"><i data-lucide="file-text"></i> About Me</a>
+                <a href="certificates.html" class="nav-link"><i data-lucide="award"></i> Certificates</a>
+                <a href="hobbies.html" class="nav-link"><i data-lucide="heart"></i> Hobbies</a>
+                <a href="projects.html" class="nav-link"><i data-lucide="briefcase"></i> Projects</a>
+                <a href="contact.html" class="nav-link"><i data-lucide="send"></i> Contact Me</a>
+            </nav>
+            <footer class="sidebar-footer">
+                &copy; 2024 Dibya Bhusal. All Rights Reserved.
+            </footer>
+        </aside>
+
+        <!-- Mobile Header -->
+        <header class="mobile-header">
+            <h1 class="mobile-title">My Portfolio</h1>
+            <button id="menu-button" class="menu-button">
+                <i data-lucide="menu"></i>
+            </button>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="page-section">
+                <div class="page-header">
+                    <h1>About Me</h1>
+                    <p>A little bit about my journey and skills.</p>
+                </div>
+                
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>Hello! I'm Dibya Bhusal, a passionate and creative developer with a love for building beautiful, functional, and user-centric web applications. My journey into the world of code started with a simple "Hello, World!" and has since evolved into a full-blown passion for turning complex problems into elegant digital solutions.</p>
+                        <p>I thrive in collaborative environments and am always eager to learn new technologies and methodologies. I believe in the power of clean code, thoughtful design, and continuous improvement.</p>
+                        <p>When I'm not coding, you can find me exploring new hobbies, contributing to open-source projects, or diving into a good book.</p>
+                    </div>
+                    <div class="about-photo">
+                        <img 
+                            src="images/my photo.jpeg" 
+                            alt="Dibya Bhusal" 
+                            class="profile-pic"
+                            onError="this.onerror=null;this.src='https://placehold.co/300x300/1f2937/a78bfa?text=Error';"
+                        />
+                    </div>
+                </div>
+
+                <div class="skills-section">
+                    <h3 class="section-subtitle">My Skillset</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card">C</div>
+                        <div class="skill-card">database(SQL)</div>
+                        <div class="skill-card">Git & GitHub</div>
+                        <div class="skill-card">Data Structures & Algorithms (DSA)</div>
+                        <div class="skill-card">HTML, CSS, JavaScript</div>
+                        <div class="skill-card">Blockchain Technology</div>
+                        <div class="skill-card">Python</div>
+                        <div class="skill-card">Cybersecurity & Ethical Hacking</div>
+                        <div class="skill-card">Microcontroller Programming</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>lucide.createIcons();</script>
+    <script src="script.js"></script>
+</body>
+</html>

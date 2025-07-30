@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobbies - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">D</div>
+                <div><h2 class="sidebar-title">Dibya Bhusal</h2><p class="sidebar-subtitle">Visionary Techie & Bold Problem Solver</p></div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-link"><i data-lucide="file-text"></i> About Me</a>
+                <a href="certificates.html" class="nav-link"><i data-lucide="award"></i> Certificates</a>
+                <a href="hobbies.html" class="nav-link active"><i data-lucide="heart"></i> Hobbies</a>
+                <a href="projects.html" class="nav-link"><i data-lucide="briefcase"></i> Projects</a>
+                <a href="contact.html" class="nav-link"><i data-lucide="send"></i> Contact Me</a>
+            </nav>
+            <footer class="sidebar-footer">&copy; 2024 Dibya Bhusal. All Rights Reserved.</footer>
+        </aside>
+        <header class="mobile-header">
+            <h1 class="mobile-title">My Portfolio</h1>
+            <button id="menu-button" class="menu-button"><i data-lucide="menu"></i></button>
+        </header>
+        <main class="main-content">
+            <section class="page-section">
+                <div class="page-header">
+                    <h1>Hobbies & Interests</h1>
+                    <p>Passions that drive me beyond the code.</p>
+                </div>
+                <div class="card-grid-3-col">
+                    <!-- Cricket Card -->
+                    <div class="hobby-card">
+                        <div class="hobby-icon">🏏</div>
+                        <h3>State-Level Cricket</h3>
+                        <p>Competed at the U16 & U19 levels, learning discipline, teamwork, and dedication.</p>
+                        <button class="gallery-button" data-gallery="cricket">View Media</button>
+                    </div>
+                    <!-- Coding Card -->
+                    <div class="hobby-card">
+                        <div class="hobby-icon">💻</div>
+                        <h3>Tech Exploration</h3>
+                        <p>Passionate about exploring new technologies like IoT, Cybersecurity, and Blockchain.</p>
+                    </div>
+                    <!-- Problem Solving Card -->
+                    <div class="hobby-card">
+                        <div class="hobby-icon">🧠</div>
+                        <h3>Competitive Programming</h3>
+                        <p>Enjoy tackling logical challenges and mastering Data Structures & Algorithms (DSA).</p>
+                    </div>
+                    <!-- Hackathons Card -->
+                    <div class="hobby-card">
+                        <div class="hobby-icon">🛠️</div>
+                        <h3>Hackathons & Projects</h3>
+                        <p>Love building real-world solutions with hands-on electronics and programming.</p>
+                    </div>
+                    <!-- Ethical Hacking Card -->
+                    <div class="hobby-card">
+                        <div class="hobby-icon">🔐</div>
+                        <h3>Ethical Hacking</h3>
+                        <p>Interested in cybersecurity, using tools like Kali Linux for penetration testing.</p>
+                    </div>
+                    <!-- Gaming Card -->
+                    <div class="hobby-card">
+                        <div class="hobby-icon">🎮</div>
+                        <h3>Gaming</h3>
+                        <p>Strategic and competitive gaming, including titles like PUBG, COD, and GTA 5.</p>
+                    </div>
+                     <!-- Photography Card -->
+                    <div class="hobby-card">
+                        <div class="hobby-icon">📷</div>
+                        <h3>Photography</h3>
+                        <p>A creative outlet for capturing moments and finding new perspectives.</p>
+                        <button class="gallery-button" data-gallery="photography">View Media</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Photo/Video Gallery Modal Structure -->
+    <div id="gallery-modal" class="modal-overlay">
+        <button class="modal-close">&times;</button>
+        <button class="modal-prev">&#10094;</button>
+        <div class="modal-content" id="gallery-content-host">
+            <!-- Media (image or video) will be inserted here by JavaScript -->
+        </div>
+        <button class="modal-next">&#10095;</button>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>lucide.createIcons();</script>
+    <script src="script.js"></script>
+</body>
+</html>

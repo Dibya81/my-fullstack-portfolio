@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">D</div>
+                <div><h2 class="sidebar-title">Dibya Bhusal</h2><p class="sidebar-subtitle">Visionary Techie & Bold Problem Solver</p></div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-link"><i data-lucide="file-text"></i> About Me</a>
+                <a href="certificates.html" class="nav-link"><i data-lucide="award"></i> Certificates</a>
+                <a href="hobbies.html" class="nav-link"><i data-lucide="heart"></i> Hobbies</a>
+                <a href="projects.html" class="nav-link"><i data-lucide="briefcase"></i> Projects</a>
+                <a href="contact.html" class="nav-link active"><i data-lucide="send"></i> Contact Me</a>
+            </nav>
+            <footer class="sidebar-footer">&copy; 2024 Dibya Bhusal. All Rights Reserved.</footer>
+        </aside>
+        <header class="mobile-header">
+            <h1 class="mobile-title">My Portfolio</h1>
+            <button id="menu-button" class="menu-button"><i data-lucide="menu"></i></button>
+        </header>
+        <main class="main-content">
+            <section class="page-section">
+                <div class="page-header">
+                    <h1>Contact Me</h1>
+                    <p>Feel free to reach out. I'd love to hear from you!</p>
+                </div>
+                <div class="contact-grid">
+                    <form id="contact-form" class="contact-form">
+                        <div class="input-group">
+                            <i data-lucide="user"></i>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="input-group">
+                            <i data-lucide="mail"></i>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="input-group">
+                            <i data-lucide="message-square"></i>
+                            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">
+                            <i data-lucide="send"></i>
+                            <span>Send Message</span>
+                        </button>
+                        <div id="form-status"></div>
+                    </form>
+                    <div class="contact-info">
+                        <h3>Other Ways to Connect</h3>
+                        <p>You can also find me on these platforms. I'm always open to connecting with fellow developers, designers, and tech enthusiasts.</p>
+                        <p><strong>Email:</strong> dibyabhusal81@gmail.com</p>
+                        <p><strong>LinkedIn:</strong> www.linkedin.com/in/dibya-bhusal-72401b215</p>
+                        <p><strong>GitHub:</strong> https://github.com/Dibya8</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>lucide.createIcons();</script>
+    <script src="script.js"></script>
+</body>
+</html>

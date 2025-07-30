@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Requests - Portfolio Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles specific to this page */
+        .requests-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 24px;
+        }
+        .requests-table th, .requests-table td {
+            border: 1px solid var(--bg-light);
+            padding: 12px 16px;
+            text-align: left;
+        }
+        .requests-table th {
+            background-color: var(--bg-medium);
+            color: var(--primary-accent);
+            font-weight: 600;
+        }
+        .requests-table tr:nth-child(even) {
+            background-color: var(--bg-medium);
+        }
+        .requests-table td {
+            color: var(--text-medium);
+        }
+        .loading-message, .error-message {
+            text-align: center;
+            font-size: 18px;
+            padding: 40px;
+            color: var(--text-medium);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <!-- You can copy the sidebar from another page if you want navigation here -->
+            <div class="sidebar-header">
+                <div class="sidebar-logo">A</div>
+                <div><h2 class="sidebar-title">Admin Panel</h2><p class="sidebar-subtitle">Portfolio</p></div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <section class="page-section">
+                <div class="page-header">
+                    <h1>Contact Form Submissions</h1>
+                    <p>Here are all the messages sent through your portfolio.</p>
+                </div>
+                <div id="requests-container">
+                    <p class="loading-message">Loading submissions...</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const container = document.getElementById('requests-container');
+
+            try {
+                // Fetch data from your backend's new endpoint
+                const response = await fetch('http://localhost:3000/api/contacts');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const contacts = await response.json();
+
+                if (contacts.length === 0) {
+                    container.innerHTML = '<p class="loading-message">No submissions yet.</p>';
+                    return;
+                }
+
+                // Create the table structure
+                let tableHTML = `
+                    <table class="requests-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Message</th>
+                                <th>Submitted At</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+
+                // Populate the table rows
+                contacts.forEach(contact => {
+                    const submittedDate = new Date(contact.submitted_at).toLocaleString();
+                    tableHTML += `
+                        <tr>
+                            <td>${contact.id}</td>
+                            <td>${contact.name}</td>
+                            <td>${contact.email}</td>
+                            <td>${contact.message}</td>
+                            <td>${submittedDate}</td>
+                        </tr>
+                    `;
+                });
+
+                tableHTML += '</tbody></table>';
+                container.innerHTML = tableHTML;
+
+            } catch (error) {
+                console.error('Failed to fetch contacts:', error);
+                container.innerHTML = '<p class="error-message">Could not load submissions. Make sure the backend server is running.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

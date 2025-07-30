@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">D</div>
+                <div><h2 class="sidebar-title">Dibya Bhusal</h2><p class="sidebar-subtitle">Visionary Techie & Bold Problem Solver</p></div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-link"><i data-lucide="file-text"></i> About Me</a>
+                <a href="certificates.html" class="nav-link"><i data-lucide="award"></i> Certificates</a>
+                <a href="hobbies.html" class="nav-link"><i data-lucide="heart"></i> Hobbies</a>
+                <a href="projects.html" class="nav-link active"><i data-lucide="briefcase"></i> Projects</a>
+                <a href="contact.html" class="nav-link"><i data-lucide="send"></i> Contact Me</a>
+            </nav>
+            <footer class="sidebar-footer">&copy; 2024 Dibya Bhusal. All Rights Reserved.</footer>
+        </aside>
+        <header class="mobile-header">
+            <h1 class="mobile-title">My Portfolio</h1>
+            <button id="menu-button" class="menu-button"><i data-lucide="menu"></i></button>
+        </header>
+        <main class="main-content">
+            <section class="page-section">
+                <div class="page-header">
+                    <h1>My Projects</h1>
+                    <p>A selection of my recent work.</p>
+                </div>
+                <div class="project-list">
+    <div class="project-card">
+        <h3>Decentralized Voting System</h3>
+        <p>A secure, transparent blockchain-based voting platform built during a hackathon. Implements smart contracts to ensure tamper-proof, one-person-one-vote elections.</p>
+        <div class="tech-tags">
+            <span>Solidity</span><span>Web3.js</span><span>Ethereum</span><span>HTML</span><span>JavaScript</span>
+        </div>
+        <a href="#" class="card-link">View Project &rarr;</a>
+    </div>
+
+    <div class="project-card">
+        <h3>Smart Moisture-Based Irrigation System</h3>
+        <p>An IoT-based system that automates plant watering based on real-time soil moisture, helping conserve water and optimize irrigation efficiency.</p>
+        <div class="tech-tags">
+            <span>ESP32</span><span>IoT</span><span>Embedded C</span><span>Soil Sensor</span><span>Relay</span>
+        </div>
+        <a href="#" class="card-link">View Project &rarr;</a>
+    </div>
+
+    <div class="project-card">
+        <h3>Fire-Fighting Robot</h3>
+        <p>An autonomous robot designed to detect and extinguish fires using flame sensors and a water-based system. Developed using IoT sensors and Linux tools.</p>
+        <div class="tech-tags">
+            <span>ESP32</span><span>IoT</span><span>Flame Sensor</span><span>Ultrasonic Sensor</span><span>Linux</span>
+        </div>
+        <a href="#" class="card-link">View Project &rarr;</a>
+    </div>
+</div>
+
+            </section>
+        </main>
+    </div>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>lucide.createIcons();</script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+/* ====================================================================== */
+/* Global Styles & Variables                                              */
+/* ====================================================================== */
+:root {
+    --bg-dark: #111827;      /* bg-gray-900 */
+    --bg-medium: #1f2937;    /* bg-gray-800 */
+    --bg-light: #374151;     /* bg-gray-700 */
+    --text-light: #f3f4f6;   /* text-gray-100 */
+    --text-medium: #9ca3af;  /* text-gray-400 */
+    --text-dark: #6b7280;    /* text-gray-500 */
+    --primary: #6366f1;      /* indigo-500 */
+    --primary-hover: #4f46e5;/* indigo-600 */
+    --primary-accent: #818cf8;/* indigo-400 */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body.modal-open { overflow: hidden; }
+
+/* ====================================================================== */
+/* Main Layout & Sidebar                                                  */
+/* ====================================================================== */
+.container { display: flex; min-height: 100vh; }
+.sidebar { width: 256px; background-color: var(--bg-medium); padding: 24px; display: flex; flex-direction: column; transition: transform 0.3s ease-in-out; flex-shrink: 0; }
+.main-content { flex: 1; padding: 40px; overflow-y: auto; }
+.sidebar-header { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
+.sidebar-logo { width: 48px; height: 48px; background-color: var(--primary); border-radius: 9999px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; flex-shrink: 0; }
+.sidebar-title { font-size: 20px; font-weight: 700; }
+.sidebar-subtitle { font-size: 14px; color: var(--text-medium); }
+.sidebar-nav { flex-grow: 1; display: flex; flex-direction: column; gap: 12px; }
+.nav-link { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 8px; text-decoration: none; color: var(--text-medium); font-weight: 500; transition: all 0.3s ease; }
+.nav-link:hover { background-color: var(--bg-light); color: var(--text-light); }
+.nav-link.active { background-color: var(--primary); color: white; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25); }
+.nav-link i { width: 20px; height: 20px; }
+.sidebar-footer { text-align: center; font-size: 12px; color: var(--text-dark); margin-top: 32px; }
+
+/* ====================================================================== */
+/* Page Sections & Headers                                                */
+/* ====================================================================== */
+.page-section { animation: fadeIn 0.8s ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.page-header { margin-bottom: 32px; border-bottom: 1px solid var(--bg-light); padding-bottom: 24px; }
+.page-header h1 { font-size: 48px; font-weight: 800; color: var(--primary-accent); letter-spacing: -0.025em; }
+.page-header p { font-size: 18px; color: var(--text-medium); margin-top: 8px; }
+.section-subtitle { font-size: 24px; font-weight: 700; color: var(--primary-accent); margin-bottom: 24px; margin-top: 48px; }
+
+/* ====================================================================== */
+/* Card Grids                                                             */
+/* ====================================================================== */
+.card-grid-2-col { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.card-grid-3-col { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+/* ====================================================================== */
+/* Specific Card Styles for Each Page                                     */
+/* ====================================================================== */
+
+/* --- Certificate Card (certificates.html) --- */
+.card {
+    background-color: var(--bg-medium);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2); }
+.card h3 { color: var(--primary-accent); font-size: 20px; }
+.card-meta { color: var(--text-medium); margin-top: 4px; }
+.card-meta-sm { color: var(--text-dark); font-size: 14px; margin-top: 4px; flex-grow: 1; }
+.card-link { display: inline-block; margin-top: 16px; color: var(--primary-accent); font-weight: 600; text-decoration: none; transition: color 0.3s; }
+.card-link:hover { color: var(--text-light); }
+
+/* --- Hobby Card (hobbies.html) --- */
+.hobby-card {
+    background-color: var(--bg-medium);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.hobby-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2); }
+.hobby-icon { font-size: 48px; margin-bottom: 16px; }
+.hobby-card h3 { color: var(--primary-accent); font-size: 20px; }
+.hobby-card p { color: var(--text-medium); margin-top: 8px; flex-grow: 1; }
+.gallery-button { background-color: var(--primary-accent); color: var(--bg-dark); font-weight: 600; padding: 8px 16px; border-radius: 8px; border: none; cursor: pointer; margin-top: 20px; transition: all 0.3s ease; }
+.gallery-button:hover { background-color: var(--text-light); transform: scale(1.05); }
+
+/* --- Project Card (projects.html) --- */
+.project-card {
+    background-color: var(--bg-medium);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2); }
+.project-list { display: flex; flex-direction: column; gap: 32px; }
+.project-card h3 { color: var(--primary-accent); font-size: 24px; }
+.project-card p { color: var(--text-medium); margin: 8px 0 16px; }
+.tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.tech-tags span { background-color: rgba(99, 102, 241, 0.2); color: var(--primary-accent); font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 9999px; }
+
+/* ====================================================================== */
+/* Photo & Video Gallery Modal Styles                                     */
+/* ====================================================================== */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: center; z-index: 2000; opacity: 0; transition: opacity 0.3s ease-in-out; }
+.modal-overlay.visible { display: flex; opacity: 1; }
+.modal-content { position: relative; max-width: 85vw; max-height: 85vh; transform: scale(0.9); transition: transform 0.3s ease-in-out; }
+.modal-overlay.visible .modal-content { transform: scale(1); }
+.modal-content img, .modal-content video { max-width: 100%; max-height: 85vh; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); display: block; }
+.modal-close { position: absolute; top: 15px; right: 35px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; transition: color 0.3s; z-index: 2001; }
+.modal-close:hover { color: var(--primary-accent); }
+.modal-prev, .modal-next { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); width: auto; padding: 16px; color: white; font-weight: bold; font-size: 24px; transition: 0.3s ease; border-radius: 0 3px 3px 0; user-select: none; background-color: rgba(0,0,0,0.3); }
+.modal-prev { left: 15px; border-radius: 3px 0 0 3px; }
+.modal-next { right: 15px; }
+.modal-prev:hover, .modal-next:hover { background-color: rgba(0,0,0,0.6); }
+
+/* ====================================================================== */
+/* Other Page Styles (About, Contact)                                     */
+/* ====================================================================== */
+.about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 32px; align-items: center;}
+.about-text p { font-size: 18px; line-height: 1.7; color: var(--text-medium); margin-bottom: 16px; }
+.about-photo { display: flex; justify-content: center; align-items: center; }
+.profile-pic { width: 256px; height: 256px; border-radius: 9999px; object-fit: cover; border: 4px solid var(--primary); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
+.skill-card { background-color: var(--bg-medium); padding: 16px; border-radius: 8px; text-align: center; font-weight: 500; color: var(--text-light); transition: all 0.3s ease; }
+.skill-card:hover { transform: translateY(-5px); background-color: var(--primary); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.contact-form { display: flex; flex-direction: column; gap: 24px; }
+.input-group { position: relative; }
+.input-group i { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-dark); pointer-events: none; }
+.input-group textarea ~ i { top: 20px; transform: translateY(0); }
+.input-group input, .input-group textarea { width: 100%; background-color: var(--bg-light); border: 1px solid var(--bg-medium); border-radius: 8px; padding: 16px 16px 16px 48px; color: var(--text-light); font-size: 16px; transition: all 0.3s ease; }
+.input-group input:focus, .input-group textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3); }
+.submit-button { background-color: var(--primary); color: white; font-weight: 700; padding: 16px; border-radius: 8px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background-color 0.3s; }
+.submit-button:hover { background-color: var(--primary-hover); }
+.submit-button:disabled { background-color: var(--text-dark); cursor: not-allowed; }
+.contact-info h3 { font-size: 24px; color: var(--primary-accent); margin-bottom: 16px; }
+.contact-info p { color: var(--text-medium); line-height: 1.8; margin-bottom: 12px; }
+.contact-info strong { color: var(--primary-accent); }
+#form-status { margin-top: 16px; padding: 12px; border-radius: 8px; text-align: center; font-weight: 500;}
+#form-status.success { background-color: rgba(16, 185, 129, 0.2); color: #a7f3d0; }
+#form-status.error { background-color: rgba(244, 63, 94, 0.2); color: #fecdd3; }
+
+/* ====================================================================== */
+/* Responsive Design & Mobile                                             */
+/* ====================================================================== */
+.mobile-header { display: none; }
+@media (max-width: 1024px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .about-photo { order: -1; margin-bottom: 32px; }
+    .contact-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+    .container { flex-direction: column; }
+    .sidebar { position: fixed; top: 0; left: 0; height: 100%; z-index: 1000; transform: translateX(-100%); box-shadow: 10px 0 20px rgba(0,0,0,0.2); }
+    .sidebar.open { transform: translateX(0); }
+    .mobile-header { display: flex; justify-content: space-between; align-items: center; padding: 16px; background-color: rgba(31, 41, 55, 0.8); backdrop-filter: blur(5px); position: sticky; top: 0; z-index: 500; border-bottom: 1px solid var(--bg-light); }
+    .mobile-title { font-size: 20px; font-weight: 700; color: var(--primary-accent); }
+    .menu-button { background: none; border: none; color: var(--text-light); cursor: pointer; }
+    .main-content { padding: 24px; }
+    .page-header h1 { font-size: 36px; }
+    .modal-prev, .modal-next { font-size: 18px; padding: 12px; }
+    .modal-close { font-size: 30px; top: 10px; right: 20px; }
+}
